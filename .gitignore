@@ -1,0 +1,27 @@
+# ── 虚拟环境 ──
+venv/
+.venv/
+
+# ── Python 缓存 ──
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# ── 敏感配置 / 数据库 ──
+key.py
+oss_config.db
+*.db
+
+# ── IDE ──
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── 系统文件 ──
+.DS_Store
+Thumbs.db
