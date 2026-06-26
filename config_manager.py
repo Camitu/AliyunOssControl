@@ -7,11 +7,22 @@ OSS 配置管理 - 基于 SQLite 本地存储
 
 import sqlite3
 import os
+import sys
 from typing import Optional, Dict
 
 
-# 数据库文件路径，与脚本同目录
-_DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "oss_config.db")
+def _get_app_dir() -> str:
+    """获取应用程序所在目录（兼容 PyInstaller 打包后的 exe）"""
+    if getattr(sys, 'frozen', False):
+        # PyInstaller 打包后：exe 所在目录
+        return os.path.dirname(sys.executable)
+    else:
+        # 源码运行：脚本所在目录
+        return os.path.dirname(os.path.abspath(__file__))
+
+
+# 数据库文件路径，与 exe / 脚本同目录
+_DB_PATH = os.path.join(_get_app_dir(), "oss_config.db")
 
 
 def _get_conn() -> sqlite3.Connection:

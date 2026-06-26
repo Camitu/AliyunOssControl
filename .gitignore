@@ -10,6 +10,11 @@ __pycache__/
 dist/
 build/
 
+# ── PyInstaller ──
+dist/
+build/
+*.spec
+
 # ── 敏感配置 / 数据库 ──
 key.py
 oss_config.db
